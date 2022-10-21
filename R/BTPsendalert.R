@@ -13,3 +13,5 @@ targetprice <- 93
 if (pricenow < targetprice) {
   sendgmailr(from = "luigi.vinegar@gmail.com", to = "luigi.aceto@genre.com", subject = "good price", body = glue::glue("current price is {pricenow}"))
 }
+
+install.packages("tidyverse")
