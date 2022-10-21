@@ -1,15 +1,13 @@
-# Hello, world!
+# Hello, scrapepriceBTP!
 #
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#' @description
-#' @param
-#' @return
+#
+#' @description This is a function that scrapes BTP price from Borsa Italiana based on a provided ISIN.
+#' @param BTP ISIN
+#' @return price
 #
 #' @import dplyr
 #' @import glue
 #' @import stringr
-#' @examples
 
 
 

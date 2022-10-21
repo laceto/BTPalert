@@ -1,14 +1,14 @@
-# Hello, world!
+# Hello, sendgmailr!
 #
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#' @description
-#' @param
-#' @return
+#' @description This is a function that send an email.
+#' @param from email address
+#' @param to email address
+#' @param subject of the email
+#' @param body of the email
 #
 #' @import dplyr
 #' @import gmailr
-#' @examples
+
 
 
 
