@@ -1,9 +1,13 @@
-library(tidyverse)
+library(dplyr)
 library(glue)
 library(rvest)
 library(gmailr)
 library(jsonlite)
+library(readr)
 ISIN <- "IT0003934657"
+
+# renv::remove("tidyverse")
+# renv::snapshot()
 
 scrapepriceBTP <- function(ISIN){
   url <- glue("https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/{ISIN}.html?lang=it")
@@ -33,7 +37,7 @@ options(
 gm_auth(email = Sys.getenv("EMAILFROM_SECRET"))
 
 
-targetprice <- 95
+targetprice <- 100
 
 sendgmailr <- function(from, to, subject, body){
   emailtosend <-
