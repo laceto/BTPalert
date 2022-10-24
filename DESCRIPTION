@@ -1,11 +1,10 @@
 Package: BTPalert
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Send an email in case the price of a BTP is below the target price
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Authors@R: 
+    person("Luigi", "Aceto", , , role = c("aut", "cre"))
+Description: Send an email in case the price of a BTP is below the target price.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
