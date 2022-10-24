@@ -5,6 +5,12 @@ Version: 0.1.0
 Authors@R: 
     person("Luigi", "Aceto", , , role = c("aut", "cre"))
 Description: Send an email in case the price of a BTP is below the target price.
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    dplyr,
+    glue,
+    gmailr,
+    jsonlite,
+    rvest
