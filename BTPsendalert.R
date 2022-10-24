@@ -5,6 +5,15 @@ library(gmailr)
 library(jsonlite)
 ISIN <- "IT0003934657"
 
+scrapepriceBTP <- function(ISIN){
+  url <- glue("https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/{ISIN}.html?lang=it")
+  url = URLencode(as.character(url))
+  download.file(url, destfile = "scrapedpage.html", quiet=TRUE)
+  webpage  <- read_html("scrapedpage.html")
+  price <- webpage %>% html_nodes("strong") %>% .[[2]] %>% html_text() %>% stringr::str_replace(., ",", ".") %>% as.numeric()
+  return(price)
+}
+
 pricenow <- scrapepriceBTP(ISIN = ISIN)
 date <- Sys.time()
 row <- data.frame(date, pricenow)
@@ -25,6 +34,16 @@ gm_auth(email = Sys.getenv("EMAILFROM_SECRET"))
 
 
 targetprice <- 95
+
+sendgmailr <- function(from, to, subject, body){
+  emailtosend <-
+    gm_mime() %>%
+    gm_to(to) %>%
+    gm_from(from) %>%
+    gm_subject(subject) %>%
+    gm_text_body(body) %>%
+    gm_send_message()
+}
 
 if (pricenow < targetprice) {
   sendgmailr(from = Sys.getenv("EMAILFROM_SECRET"), to = Sys.getenv("EMAILTO_SECRET"), subject = "good price", body = glue::glue("current price is {pricenow}"))
