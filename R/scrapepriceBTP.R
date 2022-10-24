@@ -8,7 +8,8 @@
 #' @import dplyr
 #' @import glue
 #' @import stringr
-
+#' @import rvest
+#' @export
 
 
 scrapepriceBTP <- function(ISIN){
