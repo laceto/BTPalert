@@ -68,6 +68,14 @@ jobs:
           source("BTPsendalert.R")
         shell: Rscript {0}
 
+      - name: execute r script # BTPsendalert.R.R
+        env:
+          CLIENT_ID_SECRET: ${{ secrets.CLIENT_ID_SECRET}}
+          CLIENT_SECRET_SECRET: ${{ secrets.CLIENT_SECRET_SECRET}}
+          EMAILFROM_SECRET: ${{ secrets.EMAILFROM_SECRET}}
+          EMAILTO_SECRET: ${{ secrets.EMAILTO_SECRET}}
+        run: Rscript BTPsendalert.R.R
+
       - name: Commit files
         run: |
           git config --local user.email "actions@github.com"
