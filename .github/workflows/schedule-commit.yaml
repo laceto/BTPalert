@@ -74,7 +74,7 @@ jobs:
           CLIENT_SECRET_SECRET: ${{ secrets.CLIENT_SECRET_SECRET}}
           EMAILFROM_SECRET: ${{ secrets.EMAILFROM_SECRET}}
           EMAILTO_SECRET: ${{ secrets.EMAILTO_SECRET}}
-        run: Rscript BTPsendalert.R.R
+        run: Rscript BTPsendalert.R
 
       - name: Commit files
         run: |
