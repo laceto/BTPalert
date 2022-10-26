@@ -39,8 +39,13 @@ jobs:
         with:
           pandoc-version: '2.17.1'
 
-      - name: Install packages
-        run: Rscript -e 'install.packages(c("dplyr", "jsonlite", "gmailr", "glue", "readr", "rvest"))'
+      # - name: Install packages
+      #   run: Rscript -e 'install.packages(c("dplyr", "jsonlite", "gmailr", "glue", "readr", "rvest"))'
+
+      - name: Install dependencies
+        run: |
+          install.packages(c("dplyr", "jsonlite", "gmailr", "glue", "readr", "rvest"))
+        shell: Rscript {0}
 
       # - uses: r-lib/actions/setup-r-dependencies@v2
       #
