@@ -22,10 +22,10 @@ jobs:
       RSPM: ${{ matrix.config.rspm }}
       # GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       # RENV_PATHS_ROOT: ~/.local/share/renv
-      CLIENT_ID_SECRET: ${{ secrets.CLIENT_ID_SECRET}}
-      CLIENT_SECRET_SECRET: ${{ secrets.CLIENT_SECRET_SECRET}}
-      EMAILFROM_SECRET: ${{ secrets.EMAILFROM_SECRET}}
-      EMAILTO_SECRET: ${{ secrets.EMAILTO_SECRET}}
+      # CLIENT_ID_SECRET: ${{ secrets.CLIENT_ID_SECRET}}
+      # CLIENT_SECRET_SECRET: ${{ secrets.CLIENT_SECRET_SECRET}}
+      # EMAILFROM_SECRET: ${{ secrets.EMAILFROM_SECRET}}
+      # EMAILTO_SECRET: ${{ secrets.EMAILTO_SECRET}}
 
     steps:
       - uses: actions/checkout@v3
@@ -63,10 +63,10 @@ jobs:
       #     if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
       #     renv::restore()
 
-      - name: Generate data
-        run: |
-          source("BTPsendalert.R")
-        shell: Rscript {0}
+      # - name: Generate data
+      #   run: |
+      #     source("BTPsendalert.R")
+      #   shell: Rscript {0}
 
       - name: execute r script # BTPsendalert.R.R
         env:
